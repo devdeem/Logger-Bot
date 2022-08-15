@@ -1,5 +1,7 @@
 {
-    "guild_id": "",
-    "prefix": "",
-    "owner": ""
+    "guildID": "",
+    "channelID": "",
+    "prefix": "!",
+    "owner": "975898528859697182",
+    "version": "1.0.0"
 }
