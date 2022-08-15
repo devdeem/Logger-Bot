@@ -25,7 +25,7 @@ const client = new Client({
         users: true
     }
 });
-const config = require('./config.json');
+const config = require('../src/utils/config.json');
 const channelID = config.channelID;
 const figlet = require('figlet');
 const colors = require('colors');
