@@ -33,7 +33,7 @@ TOKEN=YOUR_BOT_TOKEN
     "version": "1.0.0" // Dont change this!
 }
 ```
-    4. Change things in the .env and config.json files, then open a terminal and run the following commands
+    4. Change things in the .env and src/utils/config.json files, then open a terminal and run the following commands
 
 Downloading discord.js
 ```bash
