@@ -61,5 +61,3 @@ node .
 
 ## Message from the creator
 If I see you using this code as your own, I will report the license violation to GitHub
-
-> *README was inspired by this person: [mezotv](https://github.com/mezotv)*
