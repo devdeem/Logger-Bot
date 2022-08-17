@@ -1,11 +1,4 @@
 {
-  "dependencies": {
-    "colors": "^1.4.0",
-    "discord.js": "^14.2.0",
-    "dotenv": "^16.0.1",
-    "figlet": "^1.5.2",
-    "moment": "^2.29.4"
-  },
   "name": "logger-bot",
   "version": "1.0.0",
   "main": "src/main.js",
@@ -19,6 +12,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "discord.js": "^14.2.0",
+    "dotenv": "^16.0.1",
+    "figlet": "^1.5.2",
+    "moment": "^2.29.4"
+  },
   "bugs": {
     "url": "https://github.com/DEEM-0001/Logger-Bot/issues"
   },
