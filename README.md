@@ -58,6 +58,7 @@ node .
 
 ## CHANGELOG
 - 16.08.2022 : 14:28 - Fixed broken presence and finished channelUpdate log
+- 17.08.2022 : 14:33 - Code has been improved, logger has been added to event folder and emoji logger has been added
 
 ## Message from the creator
 If I see you using this code as your own, I will report the license violation to GitHub
