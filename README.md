@@ -57,7 +57,7 @@ node .
 - [moment](https://www.npmjs.com/package/moment) Copyright (c) Moment.js, used under license [MIT](https://github.com/moment/moment/blob/develop/LICENSE).
 
 ## CHANGELOG
-Soon...
+- 16.08.2022 : 14:28 - Fixed broken presence and finished channelUpdate log
 
 ## Message from the creator
 If I see you using this code as your own, I will report the license violation to GitHub
