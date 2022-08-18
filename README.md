@@ -63,8 +63,9 @@ node .
 - [moment](https://www.npmjs.com/package/moment) Copyright (c) Moment.js, used under license [MIT](https://github.com/moment/moment/blob/develop/LICENSE).
 
 ## CHANGELOG
-- 16.08.2022 - Fixed broken presence and finished channelUpdate log
-- 17.08.2022 - Code has been improved, logger has been added to event folder and emoji logger has been added
+- 16.08.22 - Fixed broken presence and finished channelUpdate log
+- 17.08.22 - Code has been improved, logger has been added to event folder and emoji logger has been added
+- 18.08.22 - Added ban and join log
 
 ## Message from the creator
 If I see you using this code as your own, I will report the license violation to GitHub
