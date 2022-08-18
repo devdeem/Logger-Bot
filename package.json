@@ -10,7 +10,7 @@
     "url": "git+https://github.com/DEEM-0001/Logger-Bot.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "", 
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
