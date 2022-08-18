@@ -2,7 +2,7 @@ const config = require('../utils/config.json');
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = async (client, emoji) => {
-    let logchannel = client.channels.cache.get(config.channelID);
+    let logchannel = client.channels.cache.get(config.channels.emojilog);
 
     const embed = new EmbedBuilder()
         .setColor(client.colorgreen)

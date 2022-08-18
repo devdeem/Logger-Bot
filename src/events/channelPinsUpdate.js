@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 const config = require('../utils/config.json');
 
 module.exports = async (client, channel) => {
-    let logchannel = client.channels.cache.get(config.channelID);
+    let logchannel = client.channels.cache.get(config.channels.channellog);
 
     var embed = new EmbedBuilder()
         .setColor(client.color)

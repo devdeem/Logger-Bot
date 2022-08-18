@@ -26,11 +26,17 @@ TOKEN=YOUR_BOT_TOKEN
 **config.json**
 ```bash
 {
-    "guildID": "Your server ID",
-    "channelID": "Channel ID where the log will be sent",
-    "prefix": "Prefix for commands",
-    "owner": "Your Account ID",
-    "version": "1.0.0" // Dont change this!
+    "guildID": "",
+    "channels": {
+        "channellog": "",
+        "emojilog": "",
+        "banlog": "",
+        "unbanlog": "",
+        "joinlog": ""
+    },
+    "prefix": "!",
+    "owner": "975898528859697182",
+    "version": "1.3.0" // Dont change this!
 }
 ```
     4. Change things in the .env and src/utils/config.json files, then open a terminal and run the following commands

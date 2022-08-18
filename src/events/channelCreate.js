@@ -3,7 +3,7 @@ const config = require('../utils/config.json');
 const moment = require('moment');
 
 module.exports = async (client, channel) => {
-    let logchannel = client.channels.cache.get(config.channelID);
+    let logchannel = client.channels.cache.get(config.channels.channellog);
 
     var embed = new EmbedBuilder()
         .setColor(client.colorgreen)
