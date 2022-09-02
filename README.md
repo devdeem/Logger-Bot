@@ -1,3 +1,4 @@
+![banner](https://urmom.is-very.dog/uvx.png)
 
 # Discord Server Logger Bot
 <p align="left">
