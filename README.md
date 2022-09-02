@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/DEEM-0001/Logger-Bot/">
-    <img src="https://urmom.is-very.dog/uvx.png" alt="ticket-bot" width="600"/>
+    <img src="https://urmom.is-very.dog/uvx.png" alt="logger" width="600"/>
   </a>
 </p>
 
