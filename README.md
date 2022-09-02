@@ -1,6 +1,10 @@
-![banner](https://urmom.is-very.dog/uvx.png)
+<p align="center">
+  <a href="https://github.com/DEEM-0001/Logger-Bot/">
+    <img src="https://urmom.is-very.dog/uvx.png" alt="ticket-bot" width="600"/>
+  </a>
+</p>
 
-# Discord Server Logger Bot
+# Discord Logger Bot
 <p align="left">
 <a href="https://github.com/sponsors/DEEM-0001" target"_blank"> <img src="https://img.shields.io/github/sponsors/DEEM-0001?label=Sponsors&logo=GitHub%20Sponsors&style=for-the-badge" /> </a>
 <a href="https://discord.gg/FtBVPeC2Sf" target"_blank"> <img src="https://img.shields.io/discord/993525327798210681?label=Support Server&logo=DISCORD&style=for-the-badge" /> </a>
