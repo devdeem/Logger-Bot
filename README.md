@@ -7,7 +7,6 @@
 # Discord Logger Bot
 <p align="left">
 <a href="https://github.com/sponsors/DEEM-0001" target"_blank"> <img src="https://img.shields.io/github/sponsors/DEEM-0001?label=Sponsors&logo=GitHub%20Sponsors&style=for-the-badge" /> </a>
-<a href="https://discord.gg/FtBVPeC2Sf" target"_blank"> <img src="https://img.shields.io/discord/993525327798210681?label=Support Server&logo=DISCORD&style=for-the-badge" /> </a>
 <a href="https://github.com/DEEM-0001/Logger-Bot" target"_blank"> <img src="https://img.shields.io/github/contributors/DEEM-0001/Logger-Bot?color=dark-green&logo=GITHUB&style=for-the-badge" /> </a>
 
 Discord bot that logs all changes on your Discord server! When using this code please give credits to **DEEM#6666**!
@@ -67,12 +66,22 @@ node .
 - [figlet](https://www.npmjs.com/package/figlet) Copyright (c) patorjk, used under license [MIT](https://github.com/patorjk/figlet.js/blob/master/LICENSE.txt).
 - [moment](https://www.npmjs.com/package/moment) Copyright (c) Moment.js, used under license [MIT](https://github.com/moment/moment/blob/develop/LICENSE).
 
-## CHANGELOG
-- 16.08.22 - Fixed broken presence and finished channelUpdate log
-- 17.08.22 - Code has been improved, logger has been added to event folder and emoji logger has been added
-- 18.08.22 - Added ban and join log
-
-## Message from the creator
-If I see you using this code as your own, I will report the license violation to GitHub
-
-> *README was inspired by this person: [mezotv](https://github.com/mezotv)*
+## TODO
+### Logging Capabilities
+- [x] Channels Log
+   - [x] Create
+   - [x] Delete
+   - [x] PinsUpdate
+   - [x] Update
+- [x] Emoji Log
+   - [x] Create
+   - [x] Delete
+   - [x] Update
+- [x] Moderation Log
+   - [x] Ban
+   - [x] BanRemove
+   - [ ] Kick
+   - [ ] KickRemove
+   - [ ] Timeout
+- [x] Join Log
+   - [x] MemberAdd
