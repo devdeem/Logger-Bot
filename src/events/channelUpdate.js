@@ -23,6 +23,7 @@ module.exports = async (client, oldChannel, newChannel) => {
             .setTimestamp()
 
         logchannel.send({ embeds: [embed] })
+        
         console.log(`${`[DEBUG]`.brightMagenta} ${`Channel name changed`.brightWhite}`)
     }
     if (oldChannel.nsfw !== newChannel.nsfw) {
@@ -44,6 +45,7 @@ module.exports = async (client, oldChannel, newChannel) => {
             .setTimestamp()
 
         logchannel.send({ embeds: [embed] })
+
         console.log(`${`[DEBUG]`.brightMagenta} ${`Channel Age Restriction updated`.brightWhite}`)
     }
     if (oldChannel.parent !== newChannel.parent) {
@@ -65,6 +67,7 @@ module.exports = async (client, oldChannel, newChannel) => {
             .setTimestamp()
 
         logchannel.send({ embeds: [embed] })
+
         console.log(`${`[DEBUG]`.brightMagenta} ${`Channel category changed`.brightWhite}`)
     }
     if (oldChannel.topic !== newChannel.topic) {
@@ -86,6 +89,7 @@ module.exports = async (client, oldChannel, newChannel) => {
             .setTimestamp()
 
         logchannel.send({ embeds: [embed] })
+
         console.log(`${`[DEBUG]`.brightMagenta} ${`Channel topic changed`.brightWhite}`)
     }
     if (oldChannel.rateLimitPerUser !== newChannel.rateLimitPerUser) {
@@ -107,6 +111,7 @@ module.exports = async (client, oldChannel, newChannel) => {
             .setTimestamp()
 
         logchannel.send({ embeds: [embed] })
+
         console.log(`${`[DEBUG]`.brightMagenta} ${`Channel slowmode changed`.brightWhite}`)
     }
 };

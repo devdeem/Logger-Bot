@@ -1,5 +1,11 @@
-require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
+const config = require('../src/utils/config.json');
+const { readdir } = require('fs');
+const figlet = require('figlet');
+const colors = require('colors');
+require('dotenv').config();
+
+//Intents
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -17,7 +23,7 @@ const client = new Client({
         GatewayIntentBits.GuildWebhooks,
         GatewayIntentBits.DirectMessages,
         GatewayIntentBits.DirectMessageTyping,
-        GatewayIntentBits.DirectMessageReactions
+        GatewayIntentBits.DirectMessageReactions,
     ],
     allowedMentions: {
         everyone: false,
@@ -25,10 +31,8 @@ const client = new Client({
         users: true
     }
 });
-const config = require('../src/utils/config.json');
-const { readdir, readdirSync } = require('fs');
-const figlet = require('figlet');
-const colors = require('colors');
+
+// CMD Style
 process.title = `Server Logger | ${config.version}`;
 console.clear();
 
@@ -40,14 +44,15 @@ figlet('Server Logger', (err, result) => {
 // Event Handler
 readdir('./src/events', (err, files) => {
     if (err) {
-        console.log(`${`[ERROR]`.red} ${`${err}`.brightRed}`)
+        console.log(`${`[ERROR]`.red} ${`${err}`.brightRed}`);
     }
 
-    let jsfiles = files.filter(t => t.split('.').pop() === 'js')
+    let jsfiles = files.filter(t => t.split('.').pop() === 'js');
     jsfiles.forEach(file => {
-        let eventName = file.split(".")[0]
-        let event = require(`./events/${eventName}`)
-        client.on(eventName, event.bind(null, client))
+        let eventName = file.split(".")[0];
+        let event = require(`./events/${eventName}`);
+        client.on(eventName, event.bind(null, client));
+
         console.log(`${`[EVENTS]`.brightYellow} ${`Successfully registered event`.white} ${`${eventName}.js`.brightYellow}`)
     });
 });

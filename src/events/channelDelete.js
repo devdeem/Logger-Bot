@@ -17,5 +17,6 @@ module.exports = async (client, channel) => {
         .setTimestamp()
 
     logchannel.send({ embeds: [embed] })
+    
     console.log(`${`[DEBUG]`.brightMagenta} ${`Channel has been deleted`.brightWhite}`)
 };

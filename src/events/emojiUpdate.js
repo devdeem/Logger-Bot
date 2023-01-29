@@ -19,5 +19,6 @@ module.exports = async (client, oldEmoji, newEmoji) => {
         .setTimestamp()
 
     logchannel.send({ embeds: [embed] })
+    
     console.log(`${`[DEBUG]`.brightMagenta} ${`Emoji name changed`.brightWhite}`)
 };

@@ -2,7 +2,7 @@
 # Discord Server Logger Bot
 <p align="left">
 <a href="https://github.com/sponsors/DEEM-0001" target"_blank"> <img src="https://img.shields.io/github/sponsors/DEEM-0001?label=Sponsors&logo=GitHub%20Sponsors&style=for-the-badge" /> </a>
-<a href="https://discord.gg/FtBVPeC2Sf" target"_blank"> <img src="https://img.shields.io/discord/993525327798210681?label=Support Server&logo=DISCORD&style=for-the-badge" /> </a>
+<a href="https://discord.gg/UdKSrxBXyd" target"_blank"> <img src="https://img.shields.io/discord/993525327798210681?label=Support Server&logo=DISCORD&style=for-the-badge" /> </a>
 <a href="https://github.com/DEEM-0001/Logger-Bot" target"_blank"> <img src="https://img.shields.io/github/contributors/DEEM-0001/Logger-Bot?color=dark-green&logo=GITHUB&style=for-the-badge" /> </a>
 
 Discord bot that logs all changes on your Discord server! When using this code please give credits to **DEEM#6666**!
@@ -26,17 +26,17 @@ TOKEN=YOUR_BOT_TOKEN
 **config.json**
 ```bash
 {
-    "guildID": "",
+    "guildID": "1050735132182581288",
     "channels": {
-        "channellog": "",
-        "emojilog": "",
-        "banlog": "",
-        "unbanlog": "",
-        "joinlog": ""
+        "channellog": "1069250417105567824",
+        "emojilog": "1069255441063891044",
+        "banlog": "1009561547468701756",
+        "unbanlog": "1009842927561871372",
+        "joinlog": "1009844170942324926",
+        "leavelog": "1010592671200464976",
     },
-    "prefix": "!",
     "owner": "975898528859697182",
-    "version": "1.3.0" // Dont change this!
+    "version": "1.4.0" // Dont change this!
 }
 ```
     4. Change things in the .env and src/utils/config.json files, then open a terminal and run the following commands
@@ -63,11 +63,10 @@ node .
 - [moment](https://www.npmjs.com/package/moment) Copyright (c) Moment.js, used under license [MIT](https://github.com/moment/moment/blob/develop/LICENSE).
 
 ## CHANGELOG
-- 16.08.22 - Fixed broken presence and finished channelUpdate log
+- 16.08.22 - Fixed broken presence and finished **channelUpdate** log
 - 17.08.22 - Code has been improved, logger has been added to event folder and emoji logger has been added
 - 18.08.22 - Added ban and join log
+- 29.01.23 - Modified code to discord.js **version 14.7.1**
 
 ## Message from the creator
 If I see you using this code as your own, I will report the license violation to GitHub
-
-> *README was inspired by this person: [mezotv](https://github.com/mezotv)*

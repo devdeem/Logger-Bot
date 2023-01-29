@@ -18,5 +18,6 @@ module.exports = async (client, member, reason) => {
         .setTimestamp()
 
     logchannel.send({ embeds: [embed] })
+    
     console.log(`${`[DEBUG]`.brightMagenta} ${`Member has been unbanned`.brightWhite}`)
 };

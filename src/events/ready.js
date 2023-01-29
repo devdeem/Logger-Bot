@@ -4,7 +4,6 @@ module.exports = async (client) => {
     client.colorred = 'ff1100';
     client.colorgreen = '00ff09';
     client.color = '2f3136';
-    console.log(`${`[DISCORD]`.brightBlue} ${`Logged in as`.white} ${`${client.user.tag}`.brightGreen}`)
 
     setInterval(() => {
         client.user.setPresence({
@@ -13,6 +12,12 @@ module.exports = async (client) => {
         });
     }, 15000)
 
-    process.on('unhandledRejection', err => console.log(err));
-    process.on('uncaughtException', err => console.log(err));
+    process.on('uncaughtException', (e) => {
+        console.log(`${`[ERROR]`.brightRed} ${`${e}`.white}`)
+    });
+    process.on('unhandledRejection', (e) => {
+        console.log(`${`[ERROR]`.brightRed} ${`${e}`.white}`)
+    });
+
+    console.log(`${`[DISCORD]`.brightBlue} ${`Logged in as`.white} ${`${client.user.tag}`.brightGreen}`);
 };

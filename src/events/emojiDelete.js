@@ -16,5 +16,6 @@ module.exports = async (client, emoji) => {
         .setTimestamp()
 
     logchannel.send({ embeds: [embed] })
+    
     console.log(`${`[DEBUG]`.brightMagenta} ${`Emoji removed`.brightWhite}`)
 };

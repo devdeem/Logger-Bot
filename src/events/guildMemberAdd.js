@@ -19,5 +19,6 @@ module.exports = async (client, member) => {
         )
 
     logchannel.send({ embeds: [embed] })
+    
     console.log(`${`[DEBUG]`.brightMagenta} ${`Member has joined server`.brightWhite}`)
 };

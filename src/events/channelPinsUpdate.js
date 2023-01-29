@@ -17,5 +17,6 @@ module.exports = async (client, channel) => {
         .setTimestamp()
 
     logchannel.send({ embeds: [embed] })
+    
     console.log(`${`[DEBUG]`.brightMagenta} ${`Message has been pinned or unpinned`.brightWhite}`)
 };
