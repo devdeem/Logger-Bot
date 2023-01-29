@@ -3,14 +3,14 @@ const config = require('../utils/config.json');
 const moment = require('moment');
 
 module.exports = async (client, member) => {
-    let logchannel = client.channels.cache.get(config.channels.joinlog);
+    let logchannel = client.channels.cache.get(config.channels.leavelog);
 
     var embed = new EmbedBuilder()
-        .setColor(client.colorgreen)
-        .setAuthor({ name: `${member.user.tag} has joined server`, iconURL: member.user.displayAvatarURL({ dynamic: true }) })
-        .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/inbox-tray_1f4e5.png')
+        .setColor(client.colorred)
+        .setAuthor({ name: `Member left`, iconURL: member.user.displayAvatarURL({ dynamic: true }) })
+        .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/outbox-tray_1f4e4.png')
         .setDescription([
-            `<@${member.user.id}> has joined the server`
+            `**${member.user.tag}** left the server`
         ].join('\n'))
         .addFields(
             { name: `Name`, value: `${member.user.tag}`, inline: false },
@@ -19,5 +19,5 @@ module.exports = async (client, member) => {
         )
 
     logchannel.send({ embeds: [embed] })
-    console.log(`${`[DEBUG]`.brightMagenta} ${`Member has joined server`.brightWhite}`)
+    console.log(`${`[DEBUG]`.brightMagenta} ${`Member left the server`.brightWhite}`)
 };

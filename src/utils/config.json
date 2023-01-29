@@ -1,11 +1,13 @@
 {
-    "guildID": "",
+    "guildID": "979158890899996732",
     "channels": {
-        "channellog": "",
-        "emojilog": "",
-        "banlog": "",
-        "unbanlog": "",
-        "joinlog": ""
+        "channellog": "1009560214036545558",
+        "emojilog": "1009560269262966794",
+        "banlog": "1009561547468701756",
+        "unbanlog": "1009842927561871372",
+        "joinlog": "1009844170942324926",
+        "leavelog": "1010592671200464976",
+        "memberupdatelog": "1011253104181772389"
     },
     "prefix": "!",
     "owner": "975898528859697182",
