@@ -1,11 +1,9 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const config = require('../src/utils/config.json');
+const log = require('term-logger');
 const { readdir } = require('fs');
-const figlet = require('figlet');
-const colors = require('colors');
 require('dotenv').config();
 
-//Intents
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -24,6 +22,7 @@ const client = new Client({
         GatewayIntentBits.DirectMessages,
         GatewayIntentBits.DirectMessageTyping,
         GatewayIntentBits.DirectMessageReactions,
+        GatewayIntentBits.MessageContent,
     ],
     allowedMentions: {
         everyone: false,
@@ -32,19 +31,12 @@ const client = new Client({
     }
 });
 
-// CMD Style
 process.title = `Server Logger | ${config.version}`;
 console.clear();
 
-// Banner
-figlet('Server Logger', (err, result) => {
-    console.log(`${`${err || result}`.brightBlue}`)
-});
-
-// Event Handler
 readdir('./src/events', (err, files) => {
     if (err) {
-        console.log(`${`[ERROR]`.red} ${`${err}`.brightRed}`);
+        log.error(`${err}`);
     }
 
     let jsfiles = files.filter(t => t.split('.').pop() === 'js');
@@ -53,9 +45,8 @@ readdir('./src/events', (err, files) => {
         let event = require(`./events/${eventName}`);
         client.on(eventName, event.bind(null, client));
 
-        console.log(`${`[EVENTS]`.brightYellow} ${`Successfully registered event`.white} ${`${eventName}.js`.brightYellow}`)
+        log.debug(`Successfully registered event ${eventName}.js`)
     });
 });
 
-// Login
 client.login(process.env.TOKEN);
