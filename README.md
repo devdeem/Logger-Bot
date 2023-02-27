@@ -2,7 +2,6 @@
 # Discord Server Logger Bot
 <p align="left">
 <a href="https://github.com/sponsors/DEEM-0001" target"_blank"> <img src="https://img.shields.io/github/sponsors/DEEM-0001?label=Sponsors&logo=GitHub%20Sponsors&style=for-the-badge" /> </a>
-<a href="https://discord.gg/UdKSrxBXyd" target"_blank"> <img src="https://img.shields.io/discord/993525327798210681?label=Support&logo=DISCORD&style=for-the-badge" /> </a>
 <a href="https://github.com/DEEM-0001/Logger-Bot" target"_blank"> <img src="https://img.shields.io/github/contributors/DEEM-0001/Logger-Bot?color=dark-green&logo=GITHUB&style=for-the-badge" /> </a>
 
 Discord bot that logs all changes on your Discord server! When using this code please give credits to **DEEM#6666**!
@@ -26,17 +25,18 @@ TOKEN=YOUR_BOT_TOKEN
 **config.json**
 ```bash
 {
-    "guildID": "1050735132182581288",
+    "guildID": "YOUR_GUILD_ID",
     "channels": {
-        "channellog": "1069250417105567824",
-        "emojilog": "1069255441063891044",
-        "banlog": "1009561547468701756",
-        "unbanlog": "1009842927561871372",
-        "joinlog": "1009844170942324926",
-        "leavelog": "1010592671200464976",
+        "channelLog": "CHANNEL_ID",
+        "emojiLog": "CHANNEL_ID",
+        "banLog": "CHANNEL_ID",
+        "unbanLog": "CHANNEL_ID",
+        "joinLog": "CHANNEL_ID",
+        "leaveLog": "CHANNEL_ID",
+        "messageLog": "CHANNEL_ID"
     },
     "owner": "975898528859697182",
-    "version": "1.4.0" // Dont change this!
+    "version": "1.5.0" // Don\'t change this
 }
 ```
     4. Change things in the .env and src/utils/config.json files, then open a terminal and run the following commands
@@ -56,17 +56,18 @@ Then use this command to turn on the bot:
 node .
 ```
 
-## Packages that this bot uses
-- [colors](https://www.npmjs.com/package/colors) Copyright (c) Marak, used under license [MIT](https://github.com/Marak/colors.js/blob/master/LICENSE).
-- [dotenv](https://www.npmjs.com/package/dotenv) Copyright (c) motdotla, used under license [BSD 2-Clause](https://github.com/motdotla/dotenv/blob/master/LICENSE).
-- [figlet](https://www.npmjs.com/package/figlet) Copyright (c) patorjk, used under license [MIT](https://github.com/patorjk/figlet.js/blob/master/LICENSE.txt).
-- [moment](https://www.npmjs.com/package/moment) Copyright (c) Moment.js, used under license [MIT](https://github.com/moment/moment/blob/develop/LICENSE).
+## Packages that this bot use
+- [discord.js](https://www.npmjs.com/package/discord.js?source=post_page-----7b5fe27cb6fa----------------------)
+- [term-logger](https://www.npmjs.com/package/term-logger)
+- [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## CHANGELOG
-- 16.08.22 - Fixed broken presence and finished **channelUpdate** log
-- 17.08.22 - Code has been improved, logger has been added to event folder and emoji logger has been added
-- 18.08.22 - Added ban and join log
-- 29.01.23 - Modified code to discord.js **version 14.7.1**
-
+- 16.08.2022 - Fixed broken presence and finished
+**channelUpdate** log.
+- 17.08.2022 - Code has been improved, logger has been added to event folder and emoji logger has been added.
+- 18.08.2022 - Added ban and join log.
+- 29.01.2023 - Modified code to discord.js **version 14.7.1**.
+- 26.3.2023 - Fixed small bugs, Switched from colors to [term-logger](https://www.npmjs.com/package/term-logger) package.
+- 27.3.2023 - Added **Message Delete** Event, Moved all embeds to **embed.js** file, Rewrited full code.
 ## Message from the creator
-If I see you using this code as your own, I will report the license violation to GitHub
+If I see you using this code as your own, I will report the **license violation to GitHub**
