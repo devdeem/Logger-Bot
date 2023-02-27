@@ -1,9 +1,18 @@
 const { ActivityType } = require('discord.js');
+const cfg = require('../utils/config.json');
+const log = require('term-logger');
 
 module.exports = async (client) => {
-    client.colorred = 'ff1100';
-    client.colorgreen = '00ff09';
     client.color = '2f3136';
+    client.channelLogs = {
+        channelLog: client.channels.cache.get(cfg.channels.channelLog),
+        emojiLog: client.channels.cache.get(cfg.channels.emojiLog),
+        banLog: client.channels.cache.get(cfg.channels.banLog),
+        unbanLog: client.channels.cache.get(cfg.channels.unbanLog),
+        joinLog: client.channels.cache.get(cfg.channels.joinLog),
+        leaveLog: client.channels.cache.get(cfg.channels.leaveLog),
+        messageLog: client.channels.cache.get(cfg.channels.messageLog)
+    };
 
     setInterval(() => {
         client.user.setPresence({
@@ -12,12 +21,8 @@ module.exports = async (client) => {
         });
     }, 15000)
 
-    process.on('uncaughtException', (e) => {
-        console.log(`${`[ERROR]`.brightRed} ${`${e}`.white}`)
-    });
-    process.on('unhandledRejection', (e) => {
-        console.log(`${`[ERROR]`.brightRed} ${`${e}`.white}`)
-    });
+    process.on('uncaughtException', (e) => { log.error(e) });
+    process.on('unhandledRejection', (e) => { log.error(e) });
 
-    console.log(`${`[DISCORD]`.brightBlue} ${`Logged in as`.white} ${`${client.user.tag}`.brightGreen}`);
+    log.info(`Logged in as ${client.user.tag}`);
 };
