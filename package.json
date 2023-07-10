@@ -1,9 +1,10 @@
 {
   "name": "logger-bot",
-  "version": "1.5.0",
+  "version": "1.0.6",
   "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/main.js",
+    "prod": "node ."
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,8 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "term-logger": "^1.0.2"
+    "nodemon": "^3.0.1",
+    "term-logger": "^1.1.5"
   },
   "bugs": {
     "url": "https://github.com/DEEM-0001/Logger-Bot/issues"

@@ -1,5 +1,7 @@
-const embedBuilder = require('../utils/embeds');
+const embedBuilder = require("../utils/embeds");
 
 module.exports = async (client, emoji) => {
-    client.channelLogs.emojiLog.send({ embeds: [embedBuilder.emojiD(client, emoji)] })
+  client.channelLogs.emojiLog.send({
+    embeds: [embedBuilder.emojiD(client, emoji)],
+  });
 };
