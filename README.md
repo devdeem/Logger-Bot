@@ -1,8 +1,8 @@
 # Discord Server Logger Bot
 
 <p align="left">
-<a href="https://github.com/sponsors/DEEM-0001" target"_blank"> <img src="https://img.shields.io/github/sponsors/DEEM-0001?label=Sponsors&logo=GitHub%20Sponsors&style=for-the-badge" /> </a>
-<a href="https://github.com/DEEM-0001/Logger-Bot" target"_blank"> <img src="https://img.shields.io/github/contributors/DEEM-0001/Logger-Bot?color=dark-green&logo=GITHUB&style=for-the-badge" /> </a>
+<a href="https://github.com/sponsors/devdeem" target"_blank"> <img src="https://img.shields.io/github/sponsors/devdeem?label=Sponsors&logo=GitHub%20Sponsors&style=for-the-badge" /> </a>
+<a href="https://github.com/devdeem/Logger-Bot" target"_blank"> <img src="https://img.shields.io/github/contributors/devdeem/Logger-Bot?color=dark-green&logo=GITHUB&style=for-the-badge" /> </a>
 
 Discord bot that logs all changes on your Discord server! When using this code please give credits to **@deemdev**!
 
