@@ -1,6 +1,6 @@
-const { Client, GatewayIntentBits } = require("discord.js");
+const { Client, GatewayIntentBits, Partials } = require("discord.js");
 const { TermLogger, Logger } = require("term-logger");
-const config = require("../src/utils/config.json");
+const version = require("../package.json").version;
 const { readdir } = require("fs");
 require("dotenv").config();
 
@@ -23,14 +23,26 @@ const client = new Client({
     GatewayIntentBits.DirectMessageReactions,
     GatewayIntentBits.MessageContent,
   ],
+  partials: [
+    Partials.Channel,
+    Partials.GuildMember,
+    Partials.GuildScheduledEvent,
+    Partials.Message,
+    Partials.Reaction,
+    Partials.ThreadMember,
+    Partials.User,
+  ],
+  allowedMentions: {
+    parse: ["everyone", "roles", "users"],
+  },
 });
 
 const logger = new TermLogger(client, {
   enableAntiCrash: true,
-  systemMessages: true,
+  systemMessages: false,
 });
 
-process.title = `Server Logger | ${config.version}`;
+process.title = `Server Logger Bot | ${version}`;
 client.log = Logger;
 console.clear();
 

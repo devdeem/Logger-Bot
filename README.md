@@ -12,11 +12,11 @@ Follow these instructions on how to use the bot.
 
     1.  Press the green "Code" button at the top of the repo.
 
-![template](https://cdn.discordapp.com/attachments/1008855081489268857/1008856275100106752/HNp.png)
+![template](https://cdn.discordapp.com/attachments/1050740883319967764/1138496819295432754/Gbu.png)
 
     2.  Download the full code via the "Download ZIP" button
 
-![downloadcode](https://cdn.discordapp.com/attachments/1008855081489268857/1008856994838491177/hdg.png)
+![downloadcode](https://cdn.discordapp.com/attachments/1050740883319967764/1138495847135444992/Screenshot_from_2023-08-08_17-35-35.png)
 
     3. Extract the files to your desktop and open the files in Visual Studio Code (or other text editor)
 
@@ -40,8 +40,7 @@ TOKEN=YOUR_BOT_TOKEN
     "leaveLog": "CHANNEL_ID",
     "messageLog": "CHANNEL_ID"
   },
-  "owner": "975898528859697182",
-  "version": "1.0.6" // Don\'t change this
+  "owner": "975898528859697182"
 }
 ```
 
@@ -67,10 +66,10 @@ npm run dev
 
 ## Packages that this bot use
 
-- [discord.js](https://www.npmjs.com/package/discord.js)
-- [term-logger](https://www.npmjs.com/package/term-logger)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [nodemon](https://www.npmjs.com/package/nodemon)
+- [discord.js](https://www.npmjs.com/package/discord.js) > v14.12.1
+- [term-logger](https://www.npmjs.com/package/term-logger) > v1.1.8
+- [dotenv](https://www.npmjs.com/package/dotenv) > v16.3.1
+- [nodemon](https://www.npmjs.com/package/nodemon) > v3.0.1
 
 ## CHANGELOG
 
@@ -81,8 +80,9 @@ npm run dev
 - 29.01.2023 - Modified code to discord.js **version 14.7.1**.
 - 26.3.2023 - Fixed small bugs, Switched from colors to [term-logger](https://www.npmjs.com/package/term-logger) package.
 - 27.3.2023 - Added **Message Delete** Event, Moved all embeds to **embed.js** file, Rewrited full code.
-- 10.07.2023 - Added new package **nodemon** and modified code
+- 10.07.2023 - Added new package **nodemon** and modified code.
+- 8.8.2023 - Updated all packages, Modified README file, Added **.prettierrc** file, Code has been improved.
 
 ## Message from the creator
 
-If I see you using this code as your own, I will report the **license violation to GitHub**
+If I see you using this code as your own, I will report the **license violation to GitHub**.

@@ -1,16 +1,17 @@
 const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
-  // Event: New channel created
+  // Event: channelCreate
+
   channelC: (client, channel) => {
     const channelCreate = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `New channel created`,
+        name: `${client.user.username} | New Channel Created`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079877880516968519/check-mark-button_2705.png"
+        "https://cdn.discordapp.com/emojis/1138482145673871400.webp?size=96&quality=lossless"
       )
       .addFields(
         { name: `Name`, value: `${channel.name}`, inline: true },
@@ -27,77 +28,82 @@ module.exports = {
           inline: true,
         },
         {
-          name: `Created at`,
+          name: `Created`,
           value: `<t:${parseInt(channel.createdAt / 1000)}:R>`,
           inline: true,
         }
-      )
-      .setTimestamp();
+      );
 
     return channelCreate;
   },
 
-  // Event: Channel deleted
+  // Event: channelDelete
+
   channelD: (client, channel) => {
     const channelDelete = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Channel deleted`,
+        name: `${client.user.username} | Channel Deleted`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079863147667652688/wastebasket_1f5d1-fe0f.png"
+        "https://cdn.discordapp.com/emojis/1138482145673871400.webp?size=96&quality=lossless"
       )
-      .setDescription(`:white_check_mark: **${channel.name}** has been deleted`)
+      .setDescription(`:white_check_mark: Channel **#${channel.name}** has been deleted`)
       .addFields(
-        { name: `Channel Name`, value: `${channel.name}`, inline: true },
-        { name: `Channel ID`, value: `${channel.id}`, inline: true },
+        { name: `Name`, value: `${channel.name}`, inline: true },
+        { name: `ID`, value: `${channel.id}`, inline: true },
         {
           name: `NSFW`,
           value: `${channel.nsfw ? "Yes :white_check_mark:" : "No :x:"}`,
           inline: true,
         }
-      )
-      .setTimestamp();
+      );
 
     return channelDelete;
   },
 
-  // Event: Channel pins update
+  // Event: channelPinsUpdate
+
   channelP: (client, channel) => {
+    var date = Date.now();
+
     const channelPins = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Channel pins update`,
+        name: `${client.user.username} | Channel Pins Update`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079880195319795824/pushpin_1f4cc.png"
+        "https://cdn.discordapp.com/emojis/1138483813694046339.webp?size=96&quality=lossless"
       )
-      .setDescription(`Message has been pinned or unpinned`)
+      .setDescription(`:pushpin: Message has been pinned or unpinned`)
       .addFields(
-        { name: `Channel Name`, value: `${channel.name}`, inline: true },
-        { name: `Channel Mention`, value: `<#${channel.id}>`, inline: true },
-        { name: `Channel ID`, value: `${channel.id}`, inline: true }
-      )
-      .setTimestamp();
+        { name: `In Channel`, value: `<#${channel.id}>`, inline: true },
+        { name: `Channel ID`, value: `${channel.id}`, inline: true },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+      );
 
     return channelPins;
   },
 
-  // Event: Channel name changed
+  // Event: channelUpdate
+
   channelUN: (client, newChannel, oldChannel) => {
+    var date = Date.now();
+
     const channelUpdateName = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Channel name has been changed`,
+        name: `${client.user.username} | New Channel Name`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079881840296480908/bookmark-tabs_1f4d1.png"
+        "https://cdn.discordapp.com/emojis/1138482145673871400.webp?size=96&quality=lossless"
       )
       .setDescription(
         [
+          `### Channel Information:`,
           `Name: **${newChannel.name}**`,
           `Mention: <#${newChannel.id}>`,
           `ID: **${newChannel.id}**`,
@@ -105,26 +111,25 @@ module.exports = {
       )
       .addFields(
         { name: `From`, value: `${oldChannel.name}`, inline: true },
-        { name: `To`, value: `${newChannel.name}`, inline: true }
-      )
-      .setTimestamp();
+        { name: `To`, value: `${newChannel.name}`, inline: true },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+      );
 
     return channelUpdateName;
   },
 
-  // Event: Channel NSFW status updated
+  // Event: channelUpdate
+
   channelUNSFW: (client, newChannel, oldChannel) => {
     const channelNSFW = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Channel age restriction updated`,
+        name: `${client.user.username} | Channel Age Restriction Updated`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
-      .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079882815077888011/no-one-under-eighteen_1f51e.png"
-      )
       .setDescription(
         [
+          `### Channel Information:`,
           `Name: **${newChannel.name}**`,
           `Mention: <#${newChannel.id}>`,
           `ID: **${newChannel.id}**`,
@@ -133,16 +138,12 @@ module.exports = {
       .addFields(
         {
           name: `Old Restriction`,
-          value: `${
-            oldChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
-          }`,
+          value: `${oldChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"}`,
           inline: true,
         },
         {
           name: `New Restriction`,
-          value: `${
-            newChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
-          }`,
+          value: `${newChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"}`,
           inline: true,
         }
       )
@@ -151,46 +152,54 @@ module.exports = {
     return channelNSFW;
   },
 
-  // Event: Channel category changed
+  // Event: channelUpdate
+
   channelUP: (client, newChannel, oldChannel) => {
+    var date = Date.now();
+
     const channelUpdateParent = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Channel category changed`,
+        name: `${client.user.username} | Channel Category Changed`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079881840296480908/bookmark-tabs_1f4d1.png"
+        "https://cdn.discordapp.com/emojis/1138488289846890557.webp?size=96&quality=lossless"
       )
       .setDescription(
         [
+          `### Channel Information:`,
           `Name: **${newChannel.name}**`,
           `Mention: <#${newChannel.id}>`,
           `ID: **${newChannel.id}**`,
         ].join("\n")
       )
       .addFields(
-        { name: `From`, value: `${oldChannel.parent}`, inline: true },
-        { name: `To`, value: `${newChannel.parent}`, inline: true }
-      )
-      .setTimestamp();
+        { name: `From`, value: `${oldChannel.parent || "None :x:"}`, inline: true },
+        { name: `To`, value: `${newChannel.parent || "None :x:"}`, inline: true },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+      );
 
     return channelUpdateParent;
   },
 
-  // Event: Channel topic changed
+  // Event: channelUpdate
+
   channelUT: (client, newChannel, oldChannel) => {
+    var date = Date.now();
+
     const channelUpdateTopic = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Channel topic changed`,
+        name: `${client.user.username} | Channel Topic Changed`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079881840296480908/bookmark-tabs_1f4d1.png"
+        "https://cdn.discordapp.com/emojis/1138482145673871400.webp?size=96&quality=lossless"
       )
       .setDescription(
         [
+          `### Channel Information:`,
           `Name: **${newChannel.name}**`,
           `Mention: <#${newChannel.id}>`,
           `ID: **${newChannel.id}**`,
@@ -202,26 +211,30 @@ module.exports = {
           value: `${oldChannel.topic || `None :x:`}`,
           inline: true,
         },
-        { name: `To`, value: `${newChannel.topic || `None :x:`}`, inline: true }
-      )
-      .setTimestamp();
+        { name: `To`, value: `${newChannel.topic || `None :x:`}`, inline: true },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+      );
 
     return channelUpdateTopic;
   },
 
-  // Event: Channel slowmode changed
+  // Event: channelUpdate
+
   channelURPU: (client, newChannel, oldChannel) => {
+    var date = Date.now();
+
     const channelUpdateRatelimitPerUser = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Channel slowmode changed`,
+        name: `${client.user.username} | Channel Slowmode Changed`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079885391655620629/turtle_1f422.png"
+        "https://cdn.discordapp.com/emojis/785483969453883432.webp?size=96&quality=lossless"
       )
       .setDescription(
         [
+          `### Channel Information:`,
           `Name: **${newChannel.name}**`,
           `Mention: <#${newChannel.id}>`,
           `ID: **${newChannel.id}**`,
@@ -229,94 +242,95 @@ module.exports = {
       )
       .addFields(
         {
-          name: `Old Slowmode:`,
+          name: `Old Slowmode`,
           value: `${oldChannel.rateLimitPerUser || "None :x:"}`,
           inline: true,
         },
         {
-          name: `New Slowmode:`,
+          name: `New Slowmode`,
           value: `${newChannel.rateLimitPerUser || "None :x:"}`,
           inline: true,
-        }
-      )
-      .setTimestamp();
+        },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+      );
 
     return channelUpdateRatelimitPerUser;
   },
 
-  // Event: New emoji added
+  // Event: emojiCreate
+
   emojiC: (client, emoji) => {
+    var date = Date.now();
+
     const emojiCreate = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `New emoji added`,
+        name: `${client.user.username} | New Emoji Added`,
         iconURL: client.user.displayAvatarURL({ dynamic: 4096 }),
       })
       .setThumbnail(emoji.url)
-      .setDescription(
-        [
-          `**Name:** ${emoji.name}`,
-          `**ID:** ${emoji.id}`,
-          `**Preview:** <:${emoji.name}:${emoji.id}>`,
-        ].join("\n")
-      )
-      .setTimestamp();
+      .addFields(
+        { name: `Name`, value: `${emoji.name}`, inline: false },
+        { name: `ID`, value: `${emoji.id}`, inline: false },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: false }
+      );
 
     return emojiCreate;
   },
 
-  // Event: Emoji removed
+  // Event: emojiDelete
+
   emojiD: (client, emoji) => {
+    var date = Date.now();
+
     const emojiDelete = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Emoji removed`,
+        name: `${client.user.username} | Emoji Removed`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(emoji.url)
-      .setDescription(
-        [`**Name:** ${emoji.name}`, `**ID:** ${emoji.id}`].join("\n")
-      )
-      .setTimestamp();
+      .addFields(
+        { name: `Name`, value: `${emoji.name}`, inline: false },
+        { name: `ID`, value: `${emoji.id}`, inline: false },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: false }
+      );
 
     return emojiDelete;
   },
 
-  // Event: Emoji name changed
+  // Event: emojiUpdate
+
   emojiU: (client, newEmoji, oldEmoji) => {
+    var date = Date.now();
+
     const emojiUpdate = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Emoji name changed`,
+        name: `${client.user.username} | Emoji Name Changed`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(newEmoji.url)
-      .setDescription(
-        [
-          `**Name:** ${oldEmoji.name}`,
-          `**ID:** ${newEmoji.id}`,
-          `**Preview:** ${newEmoji}`,
-        ].join("\n")
-      )
       .addFields(
-        { name: `New name`, value: `${oldEmoji.name}`, inline: true },
-        { name: `Old name`, value: `${newEmoji.name}`, inline: true }
-      )
-      .setTimestamp();
+        { name: `New Name`, value: `${oldEmoji.name}`, inline: false },
+        { name: `Old Name`, value: `${newEmoji.name}`, inline: false },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: false }
+      );
 
     return emojiUpdate;
   },
 
-  // Event: Member banned
+  // Event: guildBanAdd
+
   guildBA: (client, member, reason) => {
     const guildBanAdd = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Member has been banned`,
+        name: `${client.user.username} | Member Banned`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079891207813079050/prohibited_1f6ab.png"
+        "https://cdn.discordapp.com/emojis/1117871692803494023.webp?size=96&quality=lossless"
       )
       .setDescription(
         [
@@ -335,12 +349,13 @@ module.exports = {
     return guildBanAdd;
   },
 
-  // Event: Member unbanned
+  // Event: guildBanRemove
+
   guildBR: (client, member, reason) => {
     const guildBanRemove = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Member has been unbanned`,
+        name: `${client.user.username} | Member Unbanned`,
         iconURL: client.user.displayAvatarURL({ size: 4096 }),
       })
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
@@ -358,21 +373,23 @@ module.exports = {
     return guildBanRemove;
   },
 
-  // Event: Member joined
+  // Event: guildMemberAdd
+
   guildMA: (client, member) => {
+    var date = Date.now();
+
     const guildMemberAdd = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
         name: `${member.user.tag} has joined server`,
         iconURL: member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
       })
-      .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079877880516968519/check-mark-button_2705.png"
-      )
+      .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
       .setDescription([`<@${member.user.id}> has joined the server`].join("\n"))
       .addFields(
         { name: `Name`, value: `${member.user.tag}`, inline: true },
-        { name: `ID`, value: `${member.user.id}`, inline: true }
+        { name: `ID`, value: `${member.user.id}`, inline: true },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
 
     return guildMemberAdd;
@@ -380,51 +397,60 @@ module.exports = {
 
   // Event: Member left
   guildMR: (client, member) => {
+    var date = Date.now();
+
     const guildMemberRemove = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Member left`,
+        name: `${member.user.username} | Left the server`,
         iconURL: member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
       })
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
       .setDescription([`**${member.user.tag}** left the server`].join("\n"))
       .addFields(
         { name: `Name`, value: `${member.user.tag}`, inline: true },
-        { name: `ID`, value: `${member.user.id}`, inline: true }
+        { name: `ID`, value: `${member.user.id}`, inline: true },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
 
     return guildMemberRemove;
   },
 
-  // Event: Message deleted
+  // Event: messageDelete
+
   messageD: (client, message) => {
+    var date = Date.now();
+
     const messageDelete = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Message Deleted`,
+        name: `Message has been deleted`,
         iconURL: client.user.displayAvatarURL({ dynamic: true }),
       })
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/1050740872322490477/1079863147667652688/wastebasket_1f5d1-fe0f.png"
+        "https://cdn.discordapp.com/emojis/830790543659368448.webp?size=96&quality=lossless"
+      )
+      .setDescription(
+        [
+          `### User Information`,
+          `Name: **${message.author.username}**`,
+          `Mention: <@${message.author.id}>`,
+          `ID: **${message.author.id}**`,
+        ].join("\n")
       )
       .addFields(
         {
-          name: `User`,
-          value: `**Name:** ${message.author.tag}\n**Mention:** <@${message.author.id}>\n**ID:** ${message.author.id}`,
-          inline: true,
-        },
-        {
-          name: `In Channel`,
-          value: `**Name:** ${message.channel.name}\n**Mention:** <#${message.channel.id}>\n**ID:** ${message.channel.id}`,
-          inline: true,
-        },
-        {
-          name: `Deleted Message`,
+          name: `Message`,
           value: `${message}`,
-          inline: false,
-        }
-      )
-      .setTimestamp();
+          inline: true,
+        },
+        {
+          name: `In`,
+          value: `<#${message.channel.id}>`,
+          inline: true,
+        },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+      );
 
     return messageDelete;
   },
