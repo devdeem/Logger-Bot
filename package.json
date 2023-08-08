@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DEEM-0001/Logger-Bot.git"
+    "url": "git+https://github.com/devdeem/Logger-Bot.git"
   },
   "keywords": [],
   "author": "",
@@ -20,8 +20,8 @@
     "term-logger": "^1.1.5"
   },
   "bugs": {
-    "url": "https://github.com/DEEM-0001/Logger-Bot/issues"
+    "url": "https://github.com/devdeem/Logger-Bot/issues"
   },
-  "homepage": "https://github.com/DEEM-0001/Logger-Bot#readme",
+  "homepage": "https://github.com/devdeem/Logger-Bot#readme",
   "description": ""
 }
