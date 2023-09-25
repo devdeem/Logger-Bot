@@ -1,6 +1,6 @@
 {
   "name": "logger-bot",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "src/main.js",
   "scripts": {
     "dev": "nodemon src/main.js",
@@ -14,10 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.12.1",
+    "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.1",
-    "term-logger": "^1.1.8"
+    "term-logger": "^1.1.9"
   },
   "bugs": {
     "url": "https://github.com/devdeem/Logger-Bot/issues"

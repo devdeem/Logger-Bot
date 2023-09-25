@@ -2,7 +2,6 @@ const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
   // Event: channelCreate
-
   channelC: (client, channel) => {
     const channelCreate = new EmbedBuilder()
       .setColor(client.color)
@@ -38,7 +37,6 @@ module.exports = {
   },
 
   // Event: channelDelete
-
   channelD: (client, channel) => {
     const channelDelete = new EmbedBuilder()
       .setColor(client.color)
@@ -64,7 +62,6 @@ module.exports = {
   },
 
   // Event: channelPinsUpdate
-
   channelP: (client, channel) => {
     var date = Date.now();
 
@@ -88,7 +85,6 @@ module.exports = {
   },
 
   // Event: channelUpdate
-
   channelUN: (client, newChannel, oldChannel) => {
     var date = Date.now();
 
@@ -119,7 +115,6 @@ module.exports = {
   },
 
   // Event: channelUpdate
-
   channelUNSFW: (client, newChannel, oldChannel) => {
     const channelNSFW = new EmbedBuilder()
       .setColor(client.color)
@@ -153,7 +148,6 @@ module.exports = {
   },
 
   // Event: channelUpdate
-
   channelUP: (client, newChannel, oldChannel) => {
     var date = Date.now();
 
@@ -184,7 +178,6 @@ module.exports = {
   },
 
   // Event: channelUpdate
-
   channelUT: (client, newChannel, oldChannel) => {
     var date = Date.now();
 
@@ -219,7 +212,6 @@ module.exports = {
   },
 
   // Event: channelUpdate
-
   channelURPU: (client, newChannel, oldChannel) => {
     var date = Date.now();
 
@@ -258,7 +250,6 @@ module.exports = {
   },
 
   // Event: emojiCreate
-
   emojiC: (client, emoji) => {
     var date = Date.now();
 
@@ -279,7 +270,6 @@ module.exports = {
   },
 
   // Event: emojiDelete
-
   emojiD: (client, emoji) => {
     var date = Date.now();
 
@@ -300,7 +290,6 @@ module.exports = {
   },
 
   // Event: emojiUpdate
-
   emojiU: (client, newEmoji, oldEmoji) => {
     var date = Date.now();
 
@@ -321,7 +310,6 @@ module.exports = {
   },
 
   // Event: guildBanAdd
-
   guildBA: (client, member, reason) => {
     const guildBanAdd = new EmbedBuilder()
       .setColor(client.color)
@@ -334,9 +322,9 @@ module.exports = {
       )
       .setDescription(
         [
-          `**${member.user.tag}** has been banned`,
+          `**${member.user.username}** has been banned`,
           ``,
-          `**Name:** ${member.user.tag}`,
+          `**Name:** ${member.user.username}`,
           `**ID:** ${member.user.id}`,
         ].join("\n")
       )
@@ -350,7 +338,6 @@ module.exports = {
   },
 
   // Event: guildBanRemove
-
   guildBR: (client, member, reason) => {
     const guildBanRemove = new EmbedBuilder()
       .setColor(client.color)
@@ -361,10 +348,10 @@ module.exports = {
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
       .setDescription(
         [
-          `**${member.user.tag}** has been unbanned`,
+          `**${member.user.username}** has been unbanned`,
           ``,
           `**User:**`,
-          `**Name:** ${member.user.tag}`,
+          `**Name:** ${member.user.username}`,
           `**ID:** ${member.user.id}`,
         ].join("\n")
       )
@@ -374,20 +361,19 @@ module.exports = {
   },
 
   // Event: guildMemberAdd
-
   guildMA: (client, member) => {
     var date = Date.now();
 
     const guildMemberAdd = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `${member.user.tag} has joined server`,
+        name: `${member.user.username} has joined server`,
         iconURL: member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
       })
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
       .setDescription([`<@${member.user.id}> has joined the server`].join("\n"))
       .addFields(
-        { name: `Name`, value: `${member.user.tag}`, inline: true },
+        { name: `Name`, value: `${member.user.username}`, inline: true },
         { name: `ID`, value: `${member.user.id}`, inline: true },
         { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
@@ -406,9 +392,9 @@ module.exports = {
         iconURL: member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
       })
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
-      .setDescription([`**${member.user.tag}** left the server`].join("\n"))
+      .setDescription([`**${member.user.username}** left the server`].join("\n"))
       .addFields(
-        { name: `Name`, value: `${member.user.tag}`, inline: true },
+        { name: `Name`, value: `${member.user.username}`, inline: true },
         { name: `ID`, value: `${member.user.id}`, inline: true },
         { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
@@ -417,7 +403,6 @@ module.exports = {
   },
 
   // Event: messageDelete
-
   messageD: (client, message) => {
     var date = Date.now();
 
@@ -453,5 +438,131 @@ module.exports = {
       );
 
     return messageDelete;
+  },
+
+  // Event: voiceStateUpdate
+  voiceJ: (client, oldState, newState) => {
+    var date = Date.now();
+
+    const voiceJoin = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `${newState.member.user.username} | Joined Voice`,
+        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
+      )
+      .setDescription(
+        `<@${newState.member.user.id}> **joined** voice channel <#${newState.channel.id}>`
+      )
+      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+
+    return voiceJoin;
+  },
+
+  // Event: voiceStateUpdate
+  voiceL: (client, oldState, newState) => {
+    var date = Date.now();
+
+    const voiceLeft = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `${newState.member.user.username} | Left Voice`,
+        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
+      )
+      .setDescription(
+        `<@${oldState.member.user.id}> **left** voice channel <#${oldState.channel.id}>`
+      )
+      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+
+    return voiceLeft;
+  },
+
+  // Event: voiceStateUpdate
+  voiceSM: (client, oldState, newState) => {
+    var date = Date.now();
+
+    const voiceSelfMute = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `${newState.member.user.username} | Muted Themselves`,
+        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
+      )
+      .setDescription(
+        `<@${newState.member.user.id}> has **muted** themselves in channel <#${newState.channel.id}>`
+      )
+      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+
+    return voiceSelfMute;
+  },
+
+  // Event: voiceStateUpdate
+  voiceSUM: (client, oldState, newState) => {
+    var date = Date.now();
+
+    const voiceSelfUnmute = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `${newState.member.user.username} | Unmuted Themselves`,
+        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
+      )
+      .setDescription(
+        `<@${newState.member.user.id}> has **unmuted** themselves in channel <#${newState.channel.id}>`
+      )
+      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+
+    return voiceSelfUnmute;
+  },
+
+  // Event: voiceStateUpdate
+  voiceSD: (client, oldState, newState) => {
+    var date = Date.now();
+
+    const voiceSelfDeaf = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `${newState.member.user.username} | Deafended Themselves`,
+        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
+      )
+      .setDescription(
+        `<@${newState.member.user.id}> has **deafened** themselves in channel <#${newState.channel.id}>`
+      )
+      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+
+    return voiceSelfDeaf;
+  },
+
+  // Event: voiceStateUpdate
+  voiceSUD: (client, oldState, newState) => {
+    var date = Date.now();
+
+    const voiceSelfUndeaf = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `${newState.member.user.username} | Undeafended Themselves`,
+        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
+      )
+      .setDescription(
+        `<@${newState.member.user.id}> has **undeafened** themselves in channel <#${newState.channel.id}>`
+      )
+      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+
+    return voiceSelfUndeaf;
   },
 };

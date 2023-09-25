@@ -39,7 +39,7 @@ const client = new Client({
 
 const logger = new TermLogger(client, {
   enableAntiCrash: true,
-  systemMessages: false,
+  systemMessages: true,
 });
 
 process.title = `Server Logger Bot | ${version}`;

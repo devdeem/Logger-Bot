@@ -1,7 +1,7 @@
-const { ActivityType } = require("discord.js");
-const cfg = require("../utils/config.json");
-
 module.exports = async (client) => {
+  const { ActivityType } = require("discord.js");
+  const cfg = require("../utils/config.json");
+
   client.color = "#2b2d31";
   client.channelLogs = {
     channelLog: client.channels.cache.get(cfg.channels.channelLog),
@@ -11,6 +11,7 @@ module.exports = async (client) => {
     joinLog: client.channels.cache.get(cfg.channels.joinLog),
     leaveLog: client.channels.cache.get(cfg.channels.leaveLog),
     messageLog: client.channels.cache.get(cfg.channels.messageLog),
+    voiceLog: client.channels.cache.get(cfg.channels.voiceLog),
   };
 
   setInterval(() => {

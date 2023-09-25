@@ -7,7 +7,8 @@
     "unbanLog": "CHANNEL_ID",
     "joinLog": "CHANNEL_ID",
     "leaveLog": "CHANNEL_ID",
-    "messageLog": "CHANNEL_ID"
+    "messageLog": "CHANNEL_ID",
+    "voiceLog": "CHANNEL_ID"
   },
   "owner": "975898528859697182"
 }
