@@ -1,4 +1,5 @@
 ![Banner](https://cdn.discordapp.com/attachments/1050740855805313064/1155918354675154984/Image1.png)
+[![Run on Repl.it](https://replit.com/badge/github/devdeem/Logger-Bot)](https://replit.com/new/github/devdeem/Logger-Bot)
 
 # Logger Bot
 
@@ -71,7 +72,9 @@ npm run dev
 
 ## Support us
 
-If you use this code and are happy with it, we would be happy for any donation to support this project! [Donate us here!](https://ko-fi.com/deemdev)
+If you use this code and are happy with it, we would be happy for any donation to support this project!
+
+[DONATE US HERE :)](https://ko-fi.com/deemdev)
 
 ## Packages that this bot use
 
