@@ -1,8 +1,11 @@
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
-const { TermLogger, Logger } = require("term-logger");
 const version = require("../package.json").version;
+const { Logger } = require("term-logger");
 const { readdir } = require("fs");
 require("dotenv").config();
+
+process.title = `Server Logger Bot | ${version}`;
+console.clear();
 
 const client = new Client({
   intents: [
@@ -37,14 +40,8 @@ const client = new Client({
   },
 });
 
-const logger = new TermLogger(client, {
-  enableAntiCrash: true,
-  systemMessages: true,
-});
-
-process.title = `Server Logger Bot | ${version}`;
+// Use term-logger globally
 client.log = Logger;
-console.clear();
 
 readdir("./src/events", (err, files) => {
   let eventFiles = files.filter((t) => t.split(".").pop() === "js");

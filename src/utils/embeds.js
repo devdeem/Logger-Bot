@@ -47,7 +47,9 @@ module.exports = {
       .setThumbnail(
         "https://cdn.discordapp.com/emojis/1138482145673871400.webp?size=96&quality=lossless"
       )
-      .setDescription(`:white_check_mark: Channel **#${channel.name}** has been deleted`)
+      .setDescription(
+        `:white_check_mark: Channel **#${channel.name}** has been deleted`
+      )
       .addFields(
         { name: `Name`, value: `${channel.name}`, inline: true },
         { name: `ID`, value: `${channel.id}`, inline: true },
@@ -133,12 +135,16 @@ module.exports = {
       .addFields(
         {
           name: `Old Restriction`,
-          value: `${oldChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"}`,
+          value: `${
+            oldChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
+          }`,
           inline: true,
         },
         {
           name: `New Restriction`,
-          value: `${newChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"}`,
+          value: `${
+            newChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
+          }`,
           inline: true,
         }
       )
@@ -169,8 +175,16 @@ module.exports = {
         ].join("\n")
       )
       .addFields(
-        { name: `From`, value: `${oldChannel.parent || "None :x:"}`, inline: true },
-        { name: `To`, value: `${newChannel.parent || "None :x:"}`, inline: true },
+        {
+          name: `From`,
+          value: `${oldChannel.parent || "None :x:"}`,
+          inline: true,
+        },
+        {
+          name: `To`,
+          value: `${newChannel.parent || "None :x:"}`,
+          inline: true,
+        },
         { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
 
@@ -204,7 +218,11 @@ module.exports = {
           value: `${oldChannel.topic || `None :x:`}`,
           inline: true,
         },
-        { name: `To`, value: `${newChannel.topic || `None :x:`}`, inline: true },
+        {
+          name: `To`,
+          value: `${newChannel.topic || `None :x:`}`,
+          inline: true,
+        },
         { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
 
@@ -392,7 +410,9 @@ module.exports = {
         iconURL: member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
       })
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
-      .setDescription([`**${member.user.username}** left the server`].join("\n"))
+      .setDescription(
+        [`**${member.user.username}** left the server`].join("\n")
+      )
       .addFields(
         { name: `Name`, value: `${member.user.username}`, inline: true },
         { name: `ID`, value: `${member.user.id}`, inline: true },
@@ -448,7 +468,10 @@ module.exports = {
       .setColor(client.color)
       .setAuthor({
         name: `${newState.member.user.username} | Joined Voice`,
-        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+        iconURL: newState.member.user.displayAvatarURL({
+          dynamic: true,
+          size: 4096,
+        }),
       })
       .setThumbnail(
         "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
@@ -456,7 +479,11 @@ module.exports = {
       .setDescription(
         `<@${newState.member.user.id}> **joined** voice channel <#${newState.channel.id}>`
       )
-      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+      .addFields({
+        name: `When`,
+        value: `<t:${parseInt(date / 1000)}:R>`,
+        inline: true,
+      });
 
     return voiceJoin;
   },
@@ -469,7 +496,10 @@ module.exports = {
       .setColor(client.color)
       .setAuthor({
         name: `${newState.member.user.username} | Left Voice`,
-        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+        iconURL: newState.member.user.displayAvatarURL({
+          dynamic: true,
+          size: 4096,
+        }),
       })
       .setThumbnail(
         "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
@@ -477,7 +507,11 @@ module.exports = {
       .setDescription(
         `<@${oldState.member.user.id}> **left** voice channel <#${oldState.channel.id}>`
       )
-      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+      .addFields({
+        name: `When`,
+        value: `<t:${parseInt(date / 1000)}:R>`,
+        inline: true,
+      });
 
     return voiceLeft;
   },
@@ -490,7 +524,10 @@ module.exports = {
       .setColor(client.color)
       .setAuthor({
         name: `${newState.member.user.username} | Muted Themselves`,
-        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+        iconURL: newState.member.user.displayAvatarURL({
+          dynamic: true,
+          size: 4096,
+        }),
       })
       .setThumbnail(
         "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
@@ -498,7 +535,11 @@ module.exports = {
       .setDescription(
         `<@${newState.member.user.id}> has **muted** themselves in channel <#${newState.channel.id}>`
       )
-      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+      .addFields({
+        name: `When`,
+        value: `<t:${parseInt(date / 1000)}:R>`,
+        inline: true,
+      });
 
     return voiceSelfMute;
   },
@@ -511,7 +552,10 @@ module.exports = {
       .setColor(client.color)
       .setAuthor({
         name: `${newState.member.user.username} | Unmuted Themselves`,
-        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+        iconURL: newState.member.user.displayAvatarURL({
+          dynamic: true,
+          size: 4096,
+        }),
       })
       .setThumbnail(
         "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
@@ -519,7 +563,11 @@ module.exports = {
       .setDescription(
         `<@${newState.member.user.id}> has **unmuted** themselves in channel <#${newState.channel.id}>`
       )
-      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+      .addFields({
+        name: `When`,
+        value: `<t:${parseInt(date / 1000)}:R>`,
+        inline: true,
+      });
 
     return voiceSelfUnmute;
   },
@@ -532,7 +580,10 @@ module.exports = {
       .setColor(client.color)
       .setAuthor({
         name: `${newState.member.user.username} | Deafended Themselves`,
-        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+        iconURL: newState.member.user.displayAvatarURL({
+          dynamic: true,
+          size: 4096,
+        }),
       })
       .setThumbnail(
         "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
@@ -540,7 +591,11 @@ module.exports = {
       .setDescription(
         `<@${newState.member.user.id}> has **deafened** themselves in channel <#${newState.channel.id}>`
       )
-      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+      .addFields({
+        name: `When`,
+        value: `<t:${parseInt(date / 1000)}:R>`,
+        inline: true,
+      });
 
     return voiceSelfDeaf;
   },
@@ -553,7 +608,10 @@ module.exports = {
       .setColor(client.color)
       .setAuthor({
         name: `${newState.member.user.username} | Undeafended Themselves`,
-        iconURL: newState.member.user.displayAvatarURL({ dynamic: true, size: 4096 }),
+        iconURL: newState.member.user.displayAvatarURL({
+          dynamic: true,
+          size: 4096,
+        }),
       })
       .setThumbnail(
         "https://cdn.discordapp.com/attachments/1050740883319967764/1155814932999327814/1f50a.png"
@@ -561,7 +619,11 @@ module.exports = {
       .setDescription(
         `<@${newState.member.user.id}> has **undeafened** themselves in channel <#${newState.channel.id}>`
       )
-      .addFields({ name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true });
+      .addFields({
+        name: `When`,
+        value: `<t:${parseInt(date / 1000)}:R>`,
+        inline: true,
+      });
 
     return voiceSelfUndeaf;
   },
