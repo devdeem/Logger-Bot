@@ -11,13 +11,13 @@
     "url": "git+https://github.com/devdeem/Logger-Bot.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "deemdev",
+  "license": "MIT",
   "dependencies": {
-    "discord.js": "^14.13.0",
+    "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
-    "nodemon": "^3.0.1",
-    "term-logger": "^1.1.9"
+    "nodemon": "^3.0.2",
+    "term-logger": "^1.2.5"
   },
   "bugs": {
     "url": "https://github.com/devdeem/Logger-Bot/issues"

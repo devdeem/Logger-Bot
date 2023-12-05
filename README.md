@@ -78,10 +78,10 @@ If you use this code and are happy with it, we would be happy for any donation t
 
 ## Packages that this bot use
 
-- [discord.js](https://www.npmjs.com/package/discord.js) >>> v14.13.0
-- [term-logger](https://www.npmjs.com/package/term-logger) >>> v1.1.9
-- [dotenv](https://www.npmjs.com/package/dotenv) >>> v16.3.1
-- [nodemon](https://www.npmjs.com/package/nodemon) >>> v3.0.1
+- [discord.js](https://www.npmjs.com/package/discord.js) ^14.14.1
+- [term-logger](https://www.npmjs.com/package/term-logger) ^1.2.5
+- [dotenv](https://www.npmjs.com/package/dotenv) ^16.3.1
+- [nodemon](https://www.npmjs.com/package/nodemon) ^3.0.2
 
 ## CHANGELOG
 
