@@ -460,6 +460,44 @@ module.exports = {
     return messageDelete;
   },
 
+  // Event: messageUpdate
+  messageU: (client, oldMessage, newMessage) => {
+    var date = Date.now();
+
+    const messageUpdate = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `Message has been updated`,
+        iconURL: client.user.displayAvatarURL({ dynamic: true }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1142475983396536451/1181689429723717682/pencil.png?ex=6581f90a&is=656f840a&hm=e37d6a9945fa953a8dc8b9e3ff22965f28c203b5b2c5dd6f4c101a5e2c380938&"
+      )
+      .setDescription(
+        [
+          `### User Information`,
+          `Name: **${newMessage.author.username}**`,
+          `Mention: <@${newMessage.author.id}>`,
+          `ID: **${newMessage.author.id}**`,
+        ].join("\n")
+      )
+      .addFields(
+        {
+          name: `Original Message`,
+          value: `${oldMessage}`,
+          inline: true,
+        },
+        {
+          name: `Updated Message`,
+          value: `${newMessage}`,
+          inline: true,
+        },
+        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+      );
+
+    return messageUpdate;
+  },
+
   // Event: voiceStateUpdate
   voiceJ: (client, oldState, newState) => {
     var date = Date.now();
