@@ -135,16 +135,14 @@ module.exports = {
       .addFields(
         {
           name: `Old Restriction`,
-          value: `${
-            oldChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
-          }`,
+          value: `${oldChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
+            }`,
           inline: true,
         },
         {
           name: `New Restriction`,
-          value: `${
-            newChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
-          }`,
+          value: `${newChannel.nsfw ? "Enabled :white_check_mark:" : "Disabled :x:"
+            }`,
           inline: true,
         }
       )
