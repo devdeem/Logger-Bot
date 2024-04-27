@@ -7,6 +7,6 @@ module.exports = async (client, oldMessage, newMessage) => {
   if (!oldMessage.author) return;
 
   await client.channelLogs.messageLog.send({
-    embeds: [embedBuilder.messageU(client, oldMessage, newMessage)],
+    embeds: [embedBuilder.messageU(client, oldMessage, newMessage), embedBuilder.messageUN(client, oldMessage, newMessage)],
   });
 };

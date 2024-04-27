@@ -473,7 +473,7 @@ module.exports = {
     const messageUpdate = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
-        name: `Message has been updated`,
+        name: `Message has been updated (1/2)`,
         iconURL: client.user.displayAvatarURL({ dynamic: true }),
       })
       .setThumbnail(
@@ -481,24 +481,56 @@ module.exports = {
       )
       .setDescription(
         [
-          `### User Information`,
-          `Name: **${newMessage.author.username}**`,
-          `Mention: <@${newMessage.author.id}>`,
-          `ID: **${newMessage.author.id}**`,
+          `### Source Message`,
+          `\`\`\`${oldMessage}\`\`\``
+        ].join("\n")
+      )
+      .addFields();
+
+    return messageUpdate;
+  },
+
+  // Event: messageUpdate
+  messageUN: (client, oldMessage, newMessage) => {
+    var date = Date.now();
+
+    const messageUpdate = new EmbedBuilder()
+      .setColor(client.color)
+      .setAuthor({
+        name: `Message has been updated (2/2)`,
+        iconURL: client.user.displayAvatarURL({ dynamic: true }),
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/1142475983396536451/1181689429723717682/pencil.png?ex=6581f90a&is=656f840a&hm=e37d6a9945fa953a8dc8b9e3ff22965f28c203b5b2c5dd6f4c101a5e2c380938&"
+      )
+      .setDescription(
+        [
+          `### Updated Message`,
+          `\`\`\`${newMessage}\`\`\``
         ].join("\n")
       )
       .addFields(
         {
-          name: `Original Message`,
-          value: `${oldMessage}`,
-          inline: true,
+          name: `Message ID`,
+          value: `${newMessage.id}`,
+          inline: false,
         },
         {
-          name: `Updated Message`,
-          value: `${newMessage}`,
-          inline: true,
+          name: `Author`,
+          value: `<@${newMessage.author.id}>`,
+          inline: false,
         },
-        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+        {
+          name: `Author Data`,
+          value: `${newMessage.author.username}**/**${newMessage.author.id}`,
+          inline: false,
+        },
+        {
+          name: `Channel`,
+          value: `<#${newMessage.channel.id}>`,
+          inline: false,
+        },
+        { name: `Timestamp`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
 
     return messageUpdate;
