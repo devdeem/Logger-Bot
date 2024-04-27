@@ -435,24 +435,32 @@ module.exports = {
       )
       .setDescription(
         [
-          `### User Information`,
-          `Name: **${message.author.username}**`,
-          `Mention: <@${message.author.id}>`,
-          `ID: **${message.author.id}**`,
+          `### Message content`,
+          `\`\`\`${message}\`\`\``
         ].join("\n")
       )
       .addFields(
         {
-          name: `Message`,
-          value: `${message}`,
-          inline: true,
+          name: `Message ID`,
+          value: `${message.id}`,
+          inline: false,
         },
         {
-          name: `In`,
-          value: `<#${message.channel.id}>`,
-          inline: true,
+          name: `Author`,
+          value: `<@${message.author.id}>`,
+          inline: false,
         },
-        { name: `When`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
+        {
+          name: `Author Data`,
+          value: `${message.author.username}**/**${message.author.id}`,
+          inline: false,
+        },
+        {
+          name: `Channel`,
+          value: `<#${message.channel.id}>`,
+          inline: false,
+        },
+        { name: `Timestamp`, value: `<t:${parseInt(date / 1000)}:R>`, inline: true }
       );
 
     return messageDelete;
