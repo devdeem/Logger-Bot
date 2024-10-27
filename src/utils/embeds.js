@@ -354,7 +354,7 @@ module.exports = {
   },
 
   // Event: guildBanRemove
-  guildBR: (client, member, reason) => {
+  guildBR: (client, member) => {
     const guildBanRemove = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
@@ -467,9 +467,7 @@ module.exports = {
   },
 
   // Event: messageUpdate
-  messageU: (client, oldMessage, newMessage) => {
-    var date = Date.now();
-
+  messageU: (client, oldMessage) => {
     const messageUpdate = new EmbedBuilder()
       .setColor(client.color)
       .setAuthor({
@@ -491,7 +489,7 @@ module.exports = {
   },
 
   // Event: messageUpdate
-  messageUN: (client, oldMessage, newMessage) => {
+  messageUN: (client, newMessage) => {
     var date = Date.now();
 
     const messageUpdate = new EmbedBuilder()
@@ -537,7 +535,7 @@ module.exports = {
   },
 
   // Event: voiceStateUpdate
-  voiceJ: (client, oldState, newState) => {
+  voiceJ: (client, newState) => {
     var date = Date.now();
 
     const voiceJoin = new EmbedBuilder()
@@ -593,7 +591,7 @@ module.exports = {
   },
 
   // Event: voiceStateUpdate
-  voiceSM: (client, oldState, newState) => {
+  voiceSM: (client, newState) => {
     var date = Date.now();
 
     const voiceSelfMute = new EmbedBuilder()
@@ -621,7 +619,7 @@ module.exports = {
   },
 
   // Event: voiceStateUpdate
-  voiceSUM: (client, oldState, newState) => {
+  voiceSUM: (client, newState) => {
     var date = Date.now();
 
     const voiceSelfUnmute = new EmbedBuilder()
@@ -649,7 +647,7 @@ module.exports = {
   },
 
   // Event: voiceStateUpdate
-  voiceSD: (client, oldState, newState) => {
+  voiceSD: (client, newState) => {
     var date = Date.now();
 
     const voiceSelfDeaf = new EmbedBuilder()
@@ -677,7 +675,7 @@ module.exports = {
   },
 
   // Event: voiceStateUpdate
-  voiceSUD: (client, oldState, newState) => {
+  voiceSUD: (client, newState) => {
     var date = Date.now();
 
     const voiceSelfUndeaf = new EmbedBuilder()

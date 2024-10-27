@@ -1,7 +1,7 @@
-module.exports = async (client, member, reason) => {
+module.exports = async (client, member) => {
   const embedBuilder = require("../utils/embeds");
 
   await client.channelLogs.unbanLog.send({
-    embeds: [embedBuilder.guildBR(client, member, reason)],
+    embeds: [embedBuilder.guildBR(client, member)],
   });
 };
